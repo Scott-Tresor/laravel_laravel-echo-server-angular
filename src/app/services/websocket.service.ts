@@ -4,7 +4,7 @@ import Echo from 'laravel-echo';
   providedIn: 'root'
 })
 export class WebsocketService {
-    echo: any = null;
+    echo: Echo = null;
     constructor() {
 
         let e = new Echo({
@@ -17,6 +17,4 @@ export class WebsocketService {
                 console.log(e);
             });
     }
-
-
 }
