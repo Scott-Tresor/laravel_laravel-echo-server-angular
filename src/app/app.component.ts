@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {WebsocketService} from "./services/websocket.service";
-import Echo from "laravel-echo";
-
+import {webSocket, WebSocketSubject} from 'rxjs/webSocket';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,7 +12,14 @@ export class AppComponent implements OnInit{
   constructor(private  socketService: WebsocketService) {
   }
 
-  ngOnInit(){
+  myWebSocket: WebSocketSubject<any> = webSocket('ws://localhost:6001');
+
+  ngOnInit() {
+    this.myWebSocket.subscribe(
+        msg => console.log('message received: ' + msg),
+        err => console.log(err),
+        () => console.log('complete')
+    );
   }
 
 }
