@@ -12,14 +12,14 @@ export class AppComponent implements OnInit{
   constructor(private  socketService: WebsocketService) {
   }
 
-  myWebSocket: WebSocketSubject<any> = webSocket('ws://localhost:6001');
+  //myWebSocket: WebSocketSubject<any> = webSocket('ws://localhost:6001');
 
   ngOnInit() {
-    this.myWebSocket.subscribe(
-        msg => console.log('message received: ' + msg),
-        err => console.log(err),
-        () => console.log('complete')
-    );
+    // this.myWebSocket.subscribe(
+    //     msg => console.log('message received: ' + msg),
+    //     err => console.log(err),
+    //     () => console.log('complete')
+    // );
   }
 
 }
